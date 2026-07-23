@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IndusAssure — Insurance Dashboard</title>
+<meta name="description" content="IndusAssure super-app dashboard — your policies, claims, and protection score in one intelligent view.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app-shell" id="appShell">
+
+  <!-- ============ SIDEBAR (desktop) ============ -->
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <a href="#dashboard" class="side-logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 30 30" fill="none">
+          <path d="M15 1.5 27 6.5V14.5C27 21.8 22 27.2 15 28.5 8 27.2 3 21.8 3 14.5V6.5L15 1.5Z" fill="url(#navShield)"/>
+          <path d="M10.5 15.2 13.3 18 19.7 11.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="navShield" x1="3" y1="1.5" x2="27" y2="28.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="rgb(152,39,42)"/>
+              <stop offset="1" stop-color="rgb(104,24,27)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="side-logo-text">Indus<strong>Assure</strong></span>
+    </a>
+
+    <nav class="side-nav" aria-label="Sections">
+      <a href="#dashboard" class="side-link is-active" data-nav="dashboard">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 8.5 10 3l7 5.5V16a1 1 0 0 1-1 1h-3.5a.5.5 0 0 1-.5-.5V13a2 2 0 0 0-4 0v3.5a.5.5 0 0 1-.5.5H4a1 1 0 0 1-1-1V8.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="#policies" class="side-link" data-nav="policies">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3.5" y="2.5" width="13" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 6.5h7M6.5 10h7M6.5 13.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>My Policies</span>
+      </a>
+      <a href="#claims" class="side-link" data-nav="claims">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2.5 17 6v5c0 4.5-3 7-7 8.5-4-1.5-7-4-7-8.5V6l7-3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 10.2 9 12.2 13.2 7.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Claims</span>
+      </a>
+      <a href="#copilot" class="side-link" data-nav="copilot">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 8.2h.01M12.5 8.2h.01M7.2 11.2c.7.8 1.7 1.2 2.8 1.2s2.1-.4 2.8-1.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 15v2.5M6 17.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>AI Copilot</span>
+      </a>
+      <a href="#renewals" class="side-link" data-nav="renewals">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16 10a6 6 0 1 1-1.8-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16 3v3.5h-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Renewals</span>
+      </a>
+      <a href="#family" class="side-link" data-nav="family">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="6.5" r="2.3" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="7.5" r="1.9" stroke="currentColor" stroke-width="1.6"/><path d="M2.8 16c.5-2.6 2.1-4 4.2-4s3.7 1.4 4.2 4M11.6 16c.4-2 1.7-3.2 3.4-3.2s3 1.2 3.4 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Family</span>
+      </a>
+      <a href="#documents" class="side-link" data-nav="documents">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 2.5h6l3 3V16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 2.5V6h3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>Documents</span>
+      </a>
+      <a href="#notifications-section" class="side-link" data-nav="notifications-section">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2.5c-2.2 0-3.8 1.8-3.8 4v2.6c0 .6-.2 1.3-.6 1.9L4.4 12.6a1.1 1.1 0 0 0 .9 1.8h9.4a1.1 1.1 0 0 0 .9-1.8l-1.2-2.1c-.4-.6-.6-1.3-.6-1.9V6.5c0-2.2-1.6-4-3.8-4Z" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="17" r="1.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Notifications</span>
+      </a>
+      <a href="#settings-section" class="side-link" data-nav="settings-section">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.6" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.8v1.9M10 15.3v1.9M17.2 10h-1.9M4.7 10H2.8M15 5l-1.3 1.3M6.3 13.7 5 15M15 15l-1.3-1.3M6.3 6.3 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="side-support">
+      <button class="support-card" id="emergencyBtn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5 16.5 5v4.5c0 5-3 8.5-7.5 9.5-4.5-1-7.5-4.5-7.5-9.5V5L9 1.5Z" stroke="#fff" stroke-width="1.5"/><path d="M9 6v3.5l2.4 1.4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Emergency Assistance</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main-col">
+
+    <!-- TOP NAVBAR -->
+    <header class="topbar" id="topbar">
+      <button class="icon-btn sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="topbar-search">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><circle cx="7.3" cy="7.3" r="5.3" stroke="currentColor" stroke-width="1.6"/><path d="m15 15-3.4-3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input type="search" placeholder="Search policies, claims, documents…" aria-label="Search">
+      </div>
+
+      <div class="topbar-actions">
+        <div class="topbar-item notif-wrap">
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M9.5 2.5c-2.2 0-3.9 1.8-3.9 4.1v2.7c0 .6-.2 1.4-.6 1.9l-1.3 1.9a1.2 1.2 0 0 0 1 1.9h9.6a1.2 1.2 0 0 0 1-1.9l-1.3-1.9c-.4-.5-.6-1.3-.6-1.9V6.6c0-2.3-1.7-4.1-3.9-4.1Z" stroke="currentColor" stroke-width="1.6"/><circle cx="9.5" cy="16.2" r="1.4" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span class="notif-dot">3</span>
+          </button>
+          <div class="notif-panel" id="notifPanel" role="menu">
+            <div class="notif-panel-head"><span>Notifications</span><button class="text-link" id="markAllRead">Mark all read</button></div>
+            <div class="notif-item unread">
+              <span class="notif-icon renewal" aria-hidden="true">⟳</span>
+              <div><p>Your Motor policy renews in 12 days</p><time>2h ago</time></div>
+            </div>
+            <div class="notif-item unread">
+              <span class="notif-icon claim" aria-hidden="true">✓</span>
+              <div><p>Claim #IA-3391 moved to Approved</p><time>6h ago</time></div>
+            </div>
+            <div class="notif-item unread">
+              <span class="notif-icon ai" aria-hidden="true">✦</span>
+              <div><p>AI Copilot found a coverage gap in Term Insurance</p><time>1d ago</time></div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-icon pay" aria-hidden="true">₹</span>
+              <div><p>Premium of ₹8,400 debited for Health policy</p><time>3d ago</time></div>
+            </div>
+          </div>
+        </div>
+
+        <button class="icon-btn topbar-item" id="settingsBtn" aria-label="Settings menu">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none"><circle cx="9.5" cy="9.5" r="2.6" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 2v1.9M9.5 15.1V17M17 9.5h-1.9M3.9 9.5H2M14.6 4.4l-1.3 1.3M5.7 13.4l-1.3 1.3M14.6 14.6l-1.3-1.3M5.7 5.7 4.4 4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+
+        <button class="topbar-profile" id="profileBtn" aria-label="Account menu" aria-expanded="false">
+          <span class="avatar">RS</span>
+          <span class="profile-meta">
+            <strong>Rahul Sharma</strong>
+            <small>Premium Member</small>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="chev"><path d="M3.5 5.25 7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main">
+      <div class="page container" id="dashboard">
+
+        <!-- ===== GREETING + PROTECTION SCORE ===== -->
+        <section class="greet-row reveal-up" aria-label="Overview">
+          <div class="greet-copy">
+            <p class="greet-eyebrow">Good Morning</p>
+            <h1 class="greet-name">Rahul <span aria-hidden="true">👋</span></h1>
+            <p class="greet-sub">Here's how your protection looks today.</p>
+          </div>
+          <div class="greet-quick">
+            <button class="btn btn-primary" data-modal="buyInsurance">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Buy Insurance
+            </button>
+            <button class="btn btn-outline" data-modal="fileClaim">File a Claim</button>
+          </div>
+        </section>
+
+        <section class="score-summary-grid reveal-up" style="--delay:60ms" aria-label="Protection score and summary">
+          <!-- Protection Score Card -->
+          <article class="card score-card">
+            <div class="score-card-head">
+              <div>
+                <h2>Protection Score</h2>
+                <p class="muted">Updated today</p>
+              </div>
+              <span class="badge badge-good">Excellent</span>
+            </div>
+
+            <div class="score-body">
+              <div class="score-ring-wrap">
+                <div class="score-ring skeleton" style="--pct:0" id="protectionRing" data-target="82">
+                  <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="42" class="ring-track"/>
+                    <circle cx="50" cy="50" r="42" class="ring-fill" id="ringFill"/>
+                  </svg>
+                  <div class="ring-label">
+                    <span class="ring-num" id="ringNum">0</span>
+                    <span class="ring-text">out of 100</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="score-insights">
+                <div class="ai-insight-pill">
+                  <span class="ai-dot" aria-hidden="true">✦</span>
+                  <p><strong>AI Insight:</strong> Adding Term Insurance could raise your score to <strong>91</strong> and close your largest protection gap.</p>
+                </div>
+                <ul class="score-checklist">
+                  <li><span class="check ok">✓</span> Health coverage matches income band</li>
+                  <li><span class="check ok">✓</span> Motor IDV up to date</li>
+                  <li><span class="check warn">!</span> No standalone Term Insurance</li>
+                  <li><span class="check warn">!</span> Home contents under-insured</li>
+                </ul>
+                <button class="btn btn-primary btn-sm" data-modal="improveScore">Improve My Score</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Summary strip -->
+          <div class="summary-strip">
+            <article class="card mini-stat">
+              <span class="mini-stat-icon" aria-hidden="true">🛡️</span>
+              <p class="mini-stat-num counter" data-target="5">0</p>
+              <p class="mini-stat-label">Active Policies</p>
+            </article>
+            <article class="card mini-stat">
+              <span class="mini-stat-icon" aria-hidden="true">📋</span>
+              <p class="mini-stat-num counter" data-target="1">0</p>
+              <p class="mini-stat-label">Pending Claims</p>
+            </article>
+            <article class="card mini-stat">
+              <span class="mini-stat-icon" aria-hidden="true">⏰</span>
+              <p class="mini-stat-num counter" data-target="2">0</p>
+              <p class="mini-stat-label">Upcoming Renewals</p>
+            </article>
+            <article class="card mini-stat">
+              <span class="mini-stat-icon" aria-hidden="true">💰</span>
+              <p class="mini-stat-num counter" data-target="8750000" data-prefix="₹">₹0</p>
+              <p class="mini-stat-label">Total Coverage Value</p>
+            </article>
+            <article class="card mini-stat">
+              <span class="mini-stat-icon" aria-hidden="true">🧾</span>
+              <p class="mini-stat-num counter" data-target="42600" data-prefix="₹">₹0</p>
+              <p class="mini-stat-label">Premium Paid (FY26)</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== POLICY VAULT ===== -->
+        <section class="section-block" id="policies" aria-label="Policy Vault">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Policy Vault</h2>
+              <p class="muted">All your active protection, organised in one place</p>
+            </div>
+            <button class="text-link" data-modal="buyInsurance">+ Add Policy</button>
+          </div>
+
+          <div class="policy-grid" id="policyGrid">
+            <!-- Health -->
+            <article class="card policy-card reveal-up">
+              <div class="policy-card-top">
+                <span class="policy-tag tag-health">Health</span>
+                <span class="status-dot active">Active</span>
+              </div>
+              <h3>IndusHealth Secure+</h3>
+              <p class="policy-insurer">Insurer: IndusInd Health Alliance</p>
+              <dl class="policy-meta">
+                <div><dt>Policy No.</dt><dd>IA-HLT-88231</dd></div>
+                <div><dt>Coverage</dt><dd>₹10,00,000</dd></div>
+                <div><dt>Expires</dt><dd>18 Mar 2027</dd></div>
+              </dl>
+              <div class="policy-actions">
+                <button class="btn btn-ghost btn-sm" data-modal="viewPolicy" data-policy="IndusHealth Secure+">View</button>
+                <button class="btn btn-ghost btn-sm" data-modal="fileClaim">Claim</button>
+                <button class="btn btn-ghost btn-sm" data-modal="renewPolicy" data-policy="IndusHealth Secure+">Renew</button>
+                <button class="btn btn-ghost btn-sm icon-only" aria-label="Download policy" data-toast="Downloading policy PDF…">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v7.5M4 7l3.5 3 3.5-3M2.5 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <button class="policy-expand" aria-expanded="false">
+                <span>Policy details</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="chev"><path d="M3.5 5.25 7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="policy-details">
+                <p>Covers hospitalisation, day-care procedures, and pre/post-hospitalisation expenses for self and spouse. Includes free annual health check-up and no-claim bonus of 10% per claim-free year.</p>
+              </div>
+            </article>
+
+            <!-- Motor -->
+            <article class="card policy-card reveal-up" style="--delay:40ms">
+              <div class="policy-card-top">
+                <span class="policy-tag tag-motor">Motor</span>
+                <span class="status-dot active">Active</span>
+              </div>
+              <h3>IndusDrive Comprehensive</h3>
+              <p class="policy-insurer">Insurer: IndusInd Motor Cover</p>
+              <dl class="policy-meta">
+                <div><dt>Policy No.</dt><dd>IA-MTR-40217</dd></div>
+                <div><dt>Coverage (IDV)</dt><dd>₹4,50,000</dd></div>
+                <div><dt>Expires</dt><dd>12 Aug 2026</dd></div>
+              </dl>
+              <div class="policy-actions">
+                <button class="btn btn-ghost btn-sm" data-modal="viewPolicy" data-policy="IndusDrive Comprehensive">View</button>
+                <button class="btn btn-ghost btn-sm" data-modal="fileClaim">Claim</button>
+                <button class="btn btn-primary btn-sm" data-modal="renewPolicy" data-policy="IndusDrive Comprehensive">Renew</button>
+                <button class="btn btn-ghost btn-sm icon-only" aria-label="Download policy" data-toast="Downloading policy PDF…">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v7.5M4 7l3.5 3 3.5-3M2.5 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <button class="policy-expand" aria-expanded="false">
+                <span>Policy details</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="chev"><path d="M3.5 5.25 7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="policy-details">
+                <p>Zero-depreciation add-on active. Covers own-damage, third-party liability, and roadside assistance up to 4 call-outs per year. Expires in 20 days — renew early to keep your no-claim bonus.</p>
+              </div>
+            </article>
+
+            <!-- Travel -->
+            <article class="card policy-card reveal-up" style="--delay:80ms">
+              <div class="policy-card-top">
+                <span class="policy-tag tag-travel">Travel</span>
+                <span class="status-dot active">Active</span>
+              </div>
+              <h3>IndusGo Worldwide</h3>
+              <p class="policy-insurer">Insurer: IndusInd Travel Shield</p>
+              <dl class="policy-meta">
+                <div><dt>Policy No.</dt><dd>IA-TRV-11309</dd></div>
+                <div><dt>Coverage</dt><dd>$100,000</dd></div>
+                <div><dt>Expires</dt><dd>04 Oct 2026</dd></div>
+              </dl>
+              <div class="policy-actions">
+                <button class="btn btn-ghost btn-sm" data-modal="viewPolicy" data-policy="IndusGo Worldwide">View</button>
+                <button class="btn btn-ghost btn-sm" data-modal="fileClaim">Claim</button>
+                <button class="btn btn-ghost btn-sm" data-modal="renewPolicy" data-policy="IndusGo Worldwide">Renew</button>
+                <button class="btn btn-ghost btn-sm icon-only" aria-label="Download policy" data-toast="Downloading policy PDF…">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v7.5M4 7l3.5 3 3.5-3M2.5 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <button class="policy-expand" aria-expanded="false">
+                <span>Policy details</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="chev"><path d="M3.5 5.25 7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="policy-details">
+                <p>Single-trip cover for your upcoming international travel. Includes trip cancellation, baggage loss, and emergency medical evacuation up to $100,000.</p>
+              </div>
+            </article>
+
+            <!-- Home -->
+            <article class="card policy-card reveal-up" style="--delay:120ms">
+              <div class="policy-card-top">
+                <span class="policy-tag tag-home">Home</span>
+                <span class="status-dot warn">Under-insured</span>
+              </div>
+              <h3>IndusHome Shield</h3>
+              <p class="policy-insurer">Insurer: IndusInd Property Cover</p>
+              <dl class="policy-meta">
+                <div><dt>Policy No.</dt><dd>IA-HOM-77042</dd></div>
+                <div><dt>Coverage</dt><dd>₹35,00,000</dd></div>
+                <div><dt>Expires</dt><dd>29 Jan 2027</dd></div>
+              </dl>
+              <div class="policy-actions">
+                <button class="btn btn-ghost btn-sm" data-modal="viewPolicy" data-policy="IndusHome Shield">View</button>
+                <button class="btn btn-ghost btn-sm" data-modal="fileClaim">Claim</button>
+                <button class="btn btn-ghost btn-sm" data-modal="renewPolicy" data-policy="IndusHome Shield">Renew</button>
+                <button class="btn btn-ghost btn-sm icon-only" aria-label="Download policy" data-toast="Downloading policy PDF…">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v7.5M4 7l3.5 3 3.5-3M2.5 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <button class="policy-expand" aria-expanded="false">
+                <span>Policy details</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="chev"><path d="M3.5 5.25 7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="policy-details">
+                <p>Structure cover for your registered residence. AI has flagged that your contents coverage has not been updated in 3 years and may be below replacement value.</p>
+              </div>
+            </article>
+
+            <!-- Life -->
+            <article class="card policy-card reveal-up" style="--delay:160ms">
+              <div class="policy-card-top">
+                <span class="policy-tag tag-life">Life</span>
+                <span class="status-dot active">Active</span>
+              </div>
+              <h3>IndusLife Secure</h3>
+              <p class="policy-insurer">Insurer: IndusInd Life Assurance</p>
+              <dl class="policy-meta">
+                <div><dt>Policy No.</dt><dd>IA-LIF-55980</dd></div>
+                <div><dt>Coverage</dt><dd>₹40,00,000</dd></div>
+                <div><dt>Expires</dt><dd>Renews at 60</dd></div>
+              </dl>
+              <div class="policy-actions">
+                <button class="btn btn-ghost btn-sm" data-modal="viewPolicy" data-policy="IndusLife Secure">View</button>
+                <button class="btn btn-ghost btn-sm" data-modal="fileClaim">Claim</button>
+                <button class="btn btn-ghost btn-sm" data-modal="renewPolicy" data-policy="IndusLife Secure">Renew</button>
+                <button class="btn btn-ghost btn-sm icon-only" aria-label="Download policy" data-toast="Downloading policy PDF…">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v7.5M4 7l3.5 3 3.5-3M2.5 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <button class="policy-expand" aria-expanded="false">
+                <span>Policy details</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="chev"><path d="M3.5 5.25 7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="policy-details">
+                <p>Whole-life cover with accidental death benefit rider. Nominee details verified. Premium paid via auto-debit each March.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== AI COPILOT ===== -->
+        <section class="section-block" id="copilot" aria-label="AI Protection Copilot">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>AI Copilot</h2>
+              <p class="muted">Personalised recommendations from your banking &amp; policy activity</p>
+            </div>
+          </div>
+
+          <div class="card copilot-card reveal-up">
+            <div class="copilot-chat" id="copilotChat">
+              <div class="chat-msg bot">
+                <span class="chat-avatar" aria-hidden="true">✦</span>
+                <div class="chat-bubble">
+                  <p>Hi Rahul, I noticed your salary credit increased 18% last month. Your Health cover of ₹10L may no longer match your income band.</p>
+                  <button class="chip-btn" data-toast="Opening Health top-up options…">Increase Health Cover →</button>
+                </div>
+              </div>
+              <div class="chat-msg bot">
+                <span class="chat-avatar" aria-hidden="true">✦</span>
+                <div class="chat-bubble">
+                  <p>You booked a flight to Singapore for 14 Sept. Want single-trip travel cover added before departure?</p>
+                  <button class="chip-btn" data-toast="Fetching travel insurance quotes…">Add Travel Insurance →</button>
+                </div>
+              </div>
+              <div class="chat-msg bot">
+                <span class="chat-avatar" aria-hidden="true">✦</span>
+                <div class="chat-bubble">
+                  <p>Your home contents haven't been re-valued since 2023. Rebuilding costs in your city have risen ~9%. Shall I estimate an updated sum insured?</p>
+                  <button class="chip-btn" data-toast="Running a fresh valuation…">Re-value Home Contents →</button>
+                </div>
+              </div>
+            </div>
+            <form class="copilot-input" id="copilotForm">
+              <input type="text" id="copilotInput" placeholder="Ask the Copilot — e.g. 'Am I covered for a two-wheeler trip?'" aria-label="Message AI Copilot">
+              <button type="submit" class="btn btn-primary btn-sm">Send</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ===== CLAIM INTELLIGENCE ===== -->
+        <section class="section-block" id="claims" aria-label="Claim Intelligence">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Claim Intelligence</h2>
+              <p class="muted">Live tracking with AI-explained status</p>
+            </div>
+          </div>
+
+          <div class="card claim-card reveal-up">
+            <div class="claim-card-head">
+              <div>
+                <p class="claim-id">Claim #IA-3391 · IndusHealth Secure+</p>
+                <p class="claim-amount">₹42,000 <span class="muted">claim amount</span></p>
+              </div>
+              <div class="claim-eta">
+                <span class="badge badge-progress">In Review</span>
+                <p class="muted">Est. settlement: 2 days</p>
+              </div>
+            </div>
+
+            <ol class="claim-timeline">
+              <li class="done"><span class="tl-dot"></span><div><strong>Submitted</strong><time>12 Jul</time></div></li>
+              <li class="done"><span class="tl-dot"></span><div><strong>Documents Verified</strong><time>14 Jul</time></div></li>
+              <li class="active"><span class="tl-dot"></span><div><strong>Under Review</strong><time>Today</time></div></li>
+              <li><span class="tl-dot"></span><div><strong>Approved</strong><time>Pending</time></div></li>
+              <li><span class="tl-dot"></span><div><strong>Settled</strong><time>Pending</time></div></li>
+            </ol>
+
+            <div class="claim-footer">
+              <div class="ai-insight-pill compact">
+                <span class="ai-dot" aria-hidden="true">✦</span>
+                <p><strong>AI Explanation:</strong> Your claim is with the medical review desk. This step usually takes 24–48 hours; no action is needed from you right now.</p>
+              </div>
+              <div class="claim-docs">
+                <p class="muted">Missing documents</p>
+                <span class="doc-chip ok">✓ Discharge summary</span>
+                <span class="doc-chip ok">✓ Hospital bill</span>
+                <span class="doc-chip missing">! Diagnostic reports</span>
+                <button class="btn btn-outline btn-sm" data-modal="uploadDocs">Upload Missing Docs</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== COVERAGE GAP ANALYSIS ===== -->
+        <section class="section-block" aria-label="Coverage Gap Analysis">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Coverage Gap Analysis</h2>
+              <p class="muted">Where your protection could be stronger</p>
+            </div>
+          </div>
+
+          <div class="gap-grid">
+            <article class="card gap-card reveal-up">
+              <div class="gap-card-top">
+                <h3>Term Insurance</h3>
+                <span class="gap-pct">0%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" data-target="0"></div></div>
+              <p class="muted">No standalone term cover found. Recommended: ₹1Cr for your income band.</p>
+              <button class="btn btn-primary btn-sm" data-modal="closeGap" data-gap="Term Insurance">Close This Gap</button>
+            </article>
+            <article class="card gap-card reveal-up" style="--delay:60ms">
+              <div class="gap-card-top">
+                <h3>Home Contents</h3>
+                <span class="gap-pct">45%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" data-target="45"></div></div>
+              <p class="muted">Current sum insured is below estimated replacement value.</p>
+              <button class="btn btn-outline btn-sm" data-modal="closeGap" data-gap="Home Contents">Top Up Cover</button>
+            </article>
+            <article class="card gap-card reveal-up" style="--delay:120ms">
+              <div class="gap-card-top">
+                <h3>Family Floater</h3>
+                <span class="gap-pct">60%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" data-target="60"></div></div>
+              <p class="muted">Parents are not yet included in a family floater plan.</p>
+              <button class="btn btn-outline btn-sm" data-modal="closeGap" data-gap="Family Floater">Add Family Cover</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== CHARTS ===== -->
+        <section class="section-block" aria-label="Insights">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Your Insurance Insights</h2>
+              <p class="muted">Distribution, claim history and spending at a glance</p>
+            </div>
+          </div>
+
+          <div class="charts-grid">
+            <article class="card chart-card reveal-up">
+              <h3>Policy Distribution</h3>
+              <div class="donut-wrap">
+                <svg viewBox="0 0 42 42" class="donut" role="img" aria-label="Policy distribution donut chart">
+                  <circle class="donut-seg" cx="21" cy="21" r="15.9" stroke-dasharray="28 72" stroke-dashoffset="25" pathLength="100"/>
+                  <circle class="donut-seg s2" cx="21" cy="21" r="15.9" stroke-dasharray="24 76" stroke-dashoffset="-3" pathLength="100"/>
+                  <circle class="donut-seg s3" cx="21" cy="21" r="15.9" stroke-dasharray="18 82" stroke-dashoffset="-27" pathLength="100"/>
+                  <circle class="donut-seg s4" cx="21" cy="21" r="15.9" stroke-dasharray="16 84" stroke-dashoffset="-45" pathLength="100"/>
+                  <circle class="donut-seg s5" cx="21" cy="21" r="15.9" stroke-dasharray="14 86" stroke-dashoffset="-61" pathLength="100"/>
+                </svg>
+                <div class="donut-legend">
+                  <span><i class="dot d1"></i>Health 28%</span>
+                  <span><i class="dot d2"></i>Life 24%</span>
+                  <span><i class="dot d3"></i>Home 18%</span>
+                  <span><i class="dot d4"></i>Motor 16%</span>
+                  <span><i class="dot d5"></i>Travel 14%</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card chart-card reveal-up" style="--delay:60ms">
+              <h3>Claim History</h3>
+              <div class="bar-chart" role="img" aria-label="Claims per month bar chart">
+                <div class="bar-col"><div class="bar" style="--h:30%"></div><span>Feb</span></div>
+                <div class="bar-col"><div class="bar" style="--h:10%"></div><span>Mar</span></div>
+                <div class="bar-col"><div class="bar" style="--h:55%"></div><span>Apr</span></div>
+                <div class="bar-col"><div class="bar" style="--h:20%"></div><span>May</span></div>
+                <div class="bar-col"><div class="bar" style="--h:70%"></div><span>Jun</span></div>
+                <div class="bar-col"><div class="bar" style="--h:40%"></div><span>Jul</span></div>
+              </div>
+            </article>
+
+            <article class="card chart-card reveal-up" style="--delay:120ms">
+              <h3>Premium Spending</h3>
+              <svg class="line-chart" viewBox="0 0 240 100" preserveAspectRatio="none" role="img" aria-label="Premium spend over the year line chart">
+                <polyline points="0,80 40,65 80,70 120,40 160,50 200,20 240,30" />
+                <polygon points="0,80 40,65 80,70 120,40 160,50 200,20 240,30 240,100 0,100" class="line-fill"/>
+              </svg>
+              <p class="muted center-text">Steady increase in coverage-linked premium since April</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== RECENT ACTIVITY ===== -->
+        <section class="section-block" aria-label="Recent Activity">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Recent Activity</h2>
+              <p class="muted">Purchases, renewals, payments and claims</p>
+            </div>
+          </div>
+
+          <div class="card activity-card reveal-up">
+            <ul class="activity-list">
+              <li><span class="act-icon claim">✓</span><div><p>Claim #IA-3391 moved to <strong>Under Review</strong></p><time>Today, 9:14 AM</time></div></li>
+              <li><span class="act-icon pay">₹</span><div><p>Premium payment of ₹8,400 for IndusHealth Secure+</p><time>Yesterday, 6:02 PM</time></div></li>
+              <li><span class="act-icon renew">⟳</span><div><p>Travel policy IndusGo Worldwide auto-renewed</p><time>18 Jul, 11:30 AM</time></div></li>
+              <li><span class="act-icon buy">＋</span><div><p>Purchased IndusLife Secure — ₹40,00,000 cover</p><time>02 Jul, 3:45 PM</time></div></li>
+              <li><span class="act-icon claim">✓</span><div><p>Claim #IA-3210 settled — ₹15,600 paid out</p><time>24 Jun, 1:10 PM</time></div></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===== RENEWAL CENTER ===== -->
+        <section class="section-block" id="renewals" aria-label="Renewal Center">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Renewal Center</h2>
+              <p class="muted">Policies expiring within 30 days</p>
+            </div>
+          </div>
+
+          <div class="renewal-list">
+            <article class="card renewal-item reveal-up">
+              <div class="renewal-info">
+                <span class="policy-tag tag-motor">Motor</span>
+                <div>
+                  <h3>IndusDrive Comprehensive</h3>
+                  <p class="muted">Expires in 20 days · 12 Aug 2026</p>
+                </div>
+              </div>
+              <div class="renewal-ai">
+                <span class="ai-dot small" aria-hidden="true">✦</span>
+                <p>Adding zero-dep cover costs ₹680 more but could save ₹18,000 on your next claim.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" data-modal="renewPolicy" data-policy="IndusDrive Comprehensive">Renew Now</button>
+            </article>
+
+            <article class="card renewal-item reveal-up" style="--delay:60ms">
+              <div class="renewal-info">
+                <span class="policy-tag tag-health">Health</span>
+                <div>
+                  <h3>IndusHealth Secure+</h3>
+                  <p class="muted">Expires in 28 days · 18 Mar 2027</p>
+                </div>
+              </div>
+              <div class="renewal-ai">
+                <span class="ai-dot small" aria-hidden="true">✦</span>
+                <p>Your income band suggests upgrading to ₹15,00,000 cover for the same renewal cycle.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" data-modal="renewPolicy" data-policy="IndusHealth Secure+">Renew Now</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== QUICK ACTIONS ===== -->
+        <section class="section-block" aria-label="Quick Actions">
+          <div class="block-head reveal-up">
+            <div><h2>Quick Actions</h2></div>
+          </div>
+          <div class="quick-actions-grid">
+            <button class="card quick-action reveal-up" data-modal="buyInsurance">
+              <span class="qa-icon" aria-hidden="true">🛒</span><span>Buy Insurance</span>
+            </button>
+            <button class="card quick-action reveal-up" style="--delay:40ms" data-modal="fileClaim">
+              <span class="qa-icon" aria-hidden="true">📝</span><span>File a Claim</span>
+            </button>
+            <button class="card quick-action reveal-up" style="--delay:80ms" data-modal="comparePolicies">
+              <span class="qa-icon" aria-hidden="true">⚖️</span><span>Compare Policies</span>
+            </button>
+            <button class="card quick-action reveal-up" style="--delay:120ms" data-modal="uploadDocs">
+              <span class="qa-icon" aria-hidden="true">📤</span><span>Upload Documents</span>
+            </button>
+            <button class="card quick-action reveal-up" style="--delay:160ms" id="emergencyBtn2">
+              <span class="qa-icon" aria-hidden="true">🚨</span><span>Emergency Assistance</span>
+            </button>
+            <button class="card quick-action reveal-up" style="--delay:200ms" data-modal="contactAdvisor">
+              <span class="qa-icon" aria-hidden="true">💬</span><span>Contact Advisor</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ===== FAMILY PROTECTION ===== -->
+        <section class="section-block" id="family" aria-label="Family Protection Dashboard">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Family Protection Dashboard</h2>
+              <p class="muted">Coverage status across your household</p>
+            </div>
+          </div>
+
+          <div class="family-grid">
+            <article class="card family-card reveal-up">
+              <div class="family-top">
+                <span class="avatar lg">RS</span>
+                <div><h3>Rahul Sharma</h3><p class="muted">Self · Age 34</p></div>
+              </div>
+              <div class="family-coverage">
+                <span class="status-dot active">Fully Covered</span>
+                <p>Health · Motor · Travel · Life</p>
+              </div>
+            </article>
+            <article class="card family-card reveal-up" style="--delay:40ms">
+              <div class="family-top">
+                <span class="avatar lg">PS</span>
+                <div><h3>Priya Sharma</h3><p class="muted">Spouse · Age 31</p></div>
+              </div>
+              <div class="family-coverage">
+                <span class="status-dot active">Fully Covered</span>
+                <p>Health · Life</p>
+              </div>
+            </article>
+            <article class="card family-card reveal-up" style="--delay:80ms">
+              <div class="family-top">
+                <span class="avatar lg">AS</span>
+                <div><h3>Aarav Sharma</h3><p class="muted">Son · Age 6</p></div>
+              </div>
+              <div class="family-coverage">
+                <span class="status-dot active">Fully Covered</span>
+                <p>Health (Family Floater)</p>
+              </div>
+            </article>
+            <article class="card family-card reveal-up" style="--delay:120ms">
+              <div class="family-top">
+                <span class="avatar lg warn">MS</span>
+                <div><h3>Mohan Sharma</h3><p class="muted">Father · Age 63</p></div>
+              </div>
+              <div class="family-coverage">
+                <span class="status-dot warn">Not Covered</span>
+                <p>No active policy on record</p>
+              </div>
+              <button class="btn btn-outline btn-sm" data-modal="closeGap" data-gap="Mohan's Health Cover">Add Cover</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== RECOMMENDED POLICIES ===== -->
+        <section class="section-block" aria-label="Recommended Policies">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Recommended for You</h2>
+              <p class="muted">AI-personalised, based on your profile and gaps</p>
+            </div>
+          </div>
+
+          <div class="reco-grid">
+            <article class="card reco-card reveal-up">
+              <span class="policy-tag tag-life">Term Life</span>
+              <h3>IndusTerm Secure ₹1Cr</h3>
+              <p class="reco-reason"><span class="ai-dot small" aria-hidden="true">✦</span>Closes your largest protection gap given your family's dependency on your income.</p>
+              <div class="reco-figures">
+                <div><dt>Coverage</dt><dd>₹1,00,00,000</dd></div>
+                <div><dt>Est. Premium</dt><dd>₹950/mo</dd></div>
+              </div>
+              <button class="btn btn-primary btn-sm" data-modal="viewPolicy" data-policy="IndusTerm Secure ₹1Cr">Learn More</button>
+            </article>
+            <article class="card reco-card reveal-up" style="--delay:60ms">
+              <span class="policy-tag tag-home">Home Top-up</span>
+              <h3>Home Contents Top-Up</h3>
+              <p class="reco-reason"><span class="ai-dot small" aria-hidden="true">✦</span>Rebuilding costs in your area have risen 9% since your last valuation.</p>
+              <div class="reco-figures">
+                <div><dt>Added Cover</dt><dd>₹8,00,000</dd></div>
+                <div><dt>Est. Premium</dt><dd>₹210/mo</dd></div>
+              </div>
+              <button class="btn btn-outline btn-sm" data-modal="viewPolicy" data-policy="Home Contents Top-Up">Learn More</button>
+            </article>
+            <article class="card reco-card reveal-up" style="--delay:120ms">
+              <span class="policy-tag tag-health">Family Floater</span>
+              <h3>Parents' Health Shield</h3>
+              <p class="reco-reason"><span class="ai-dot small" aria-hidden="true">✦</span>Your father currently has no active health cover on file.</p>
+              <div class="reco-figures">
+                <div><dt>Coverage</dt><dd>₹5,00,000</dd></div>
+                <div><dt>Est. Premium</dt><dd>₹1,450/mo</dd></div>
+              </div>
+              <button class="btn btn-outline btn-sm" data-modal="viewPolicy" data-policy="Parents' Health Shield">Learn More</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== DOCUMENTS ===== -->
+        <section class="section-block" id="documents" aria-label="Documents">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Documents</h2>
+              <p class="muted">Policy documents and claim uploads</p>
+            </div>
+            <button class="text-link" data-modal="uploadDocs">+ Upload</button>
+          </div>
+          <div class="card table-card reveal-up">
+            <table class="responsive-table">
+              <thead>
+                <tr><th>Document</th><th>Policy</th><th>Type</th><th>Uploaded</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Document">Discharge Summary.pdf</td>
+                  <td data-label="Policy">IndusHealth Secure+</td>
+                  <td data-label="Type"><span class="doc-chip ok">Verified</span></td>
+                  <td data-label="Uploaded">14 Jul 2026</td>
+                  <td data-label=""><button class="text-link" data-toast="Downloading document…">Download</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Document">Hospital Bill.pdf</td>
+                  <td data-label="Policy">IndusHealth Secure+</td>
+                  <td data-label="Type"><span class="doc-chip ok">Verified</span></td>
+                  <td data-label="Uploaded">14 Jul 2026</td>
+                  <td data-label=""><button class="text-link" data-toast="Downloading document…">Download</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Document">Diagnostic Reports.pdf</td>
+                  <td data-label="Policy">IndusHealth Secure+</td>
+                  <td data-label="Type"><span class="doc-chip missing">Pending</span></td>
+                  <td data-label="Uploaded">—</td>
+                  <td data-label=""><button class="text-link" data-modal="uploadDocs">Upload</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Document">RC Book Copy.pdf</td>
+                  <td data-label="Policy">IndusDrive Comprehensive</td>
+                  <td data-label="Type"><span class="doc-chip ok">Verified</span></td>
+                  <td data-label="Uploaded">02 Jan 2026</td>
+                  <td data-label=""><button class="text-link" data-toast="Downloading document…">Download</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== NOTIFICATIONS SECTION ===== -->
+        <section class="section-block" id="notifications-section" aria-label="Notification preferences">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Notification Preferences</h2>
+              <p class="muted">Choose what IndusAssure keeps you posted on</p>
+            </div>
+          </div>
+          <div class="card pref-card reveal-up">
+            <label class="pref-row"><span>Claim status updates</span><input type="checkbox" class="switch" checked></label>
+            <label class="pref-row"><span>Renewal reminders</span><input type="checkbox" class="switch" checked></label>
+            <label class="pref-row"><span>AI Copilot suggestions</span><input type="checkbox" class="switch" checked></label>
+            <label class="pref-row"><span>Premium payment receipts</span><input type="checkbox" class="switch" checked></label>
+            <label class="pref-row"><span>Marketing &amp; offers</span><input type="checkbox" class="switch"></label>
+          </div>
+        </section>
+
+        <!-- ===== SETTINGS ===== -->
+        <section class="section-block" id="settings-section" aria-label="Settings">
+          <div class="block-head reveal-up">
+            <div>
+              <h2>Settings</h2>
+              <p class="muted">Account and app preferences</p>
+            </div>
+          </div>
+          <div class="card pref-card reveal-up">
+            <label class="pref-row"><span>Biometric login</span><input type="checkbox" class="switch" checked></label>
+            <label class="pref-row"><span>Auto-renew policies</span><input type="checkbox" class="switch" checked></label>
+            <label class="pref-row"><span>Dark mode</span><input type="checkbox" class="switch" id="darkModeToggle"></label>
+            <button class="text-link danger" data-toast="Logged out (demo only)">Log Out</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- BOTTOM NAV (mobile) -->
+    <nav class="bottom-nav" aria-label="Primary mobile navigation">
+      <a href="#dashboard" class="bn-link is-active" data-nav="dashboard">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 8.5 10 3l7 5.5V16a1 1 0 0 1-1 1h-3.5a.5.5 0 0 1-.5-.5V13a2 2 0 0 0-4 0v3.5a.5.5 0 0 1-.5.5H4a1 1 0 0 1-1-1V8.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="#policies" class="bn-link" data-nav="policies">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3.5" y="2.5" width="13" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 6.5h7M6.5 10h7M6.5 13.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Policies</span>
+      </a>
+      <a href="#copilot" class="bn-link bn-fab" data-nav="copilot">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 8.2h.01M12.5 8.2h.01M7.2 11.2c.7.8 1.7 1.2 2.8 1.2s2.1-.4 2.8-1.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Copilot</span>
+      </a>
+      <a href="#claims" class="bn-link" data-nav="claims">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2.5 17 6v5c0 4.5-3 7-7 8.5-4-1.5-7-4-7-8.5V6l7-3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>Claims</span>
+      </a>
+      <a href="#family" class="bn-link" data-nav="family">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="6.5" r="2.3" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="7.5" r="1.9" stroke="currentColor" stroke-width="1.6"/><path d="M2.8 16c.5-2.6 2.1-4 4.2-4s3.7 1.4 4.2 4M11.6 16c.4-2 1.7-3.2 3.4-3.2s3 1.2 3.4 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Family</span>
+      </a>
+    </nav>
+
+  </div>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close dialog">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
